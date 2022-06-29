@@ -14,4 +14,3 @@ ZIPFILES='^.+\.zip$'
 	unzip $1
 
 fi
-
