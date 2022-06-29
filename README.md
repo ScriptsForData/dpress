@@ -26,4 +26,4 @@ dpress <file>
 The script will detect if is rar or zip extension and use the tool with their arguments. The output will go to a new directory with compressed file name.
 
 ## Limitations
-For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an error.
+For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
