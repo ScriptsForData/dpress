@@ -12,3 +12,12 @@ Is necessary that you have mentioned tools instaled on your computer, `unzip` an
 Note
 :		Remember to give permitions to `requirements.sh` before to try to execute. And this file only works with `Debian` distribution and derivates.
 
+## How to use
+You can run the script on your terminal each time do you need or option that I recomended you is save the script as alias on your bash or zsh rc file as follow:
+
+```Bash
+alias dpress=/~/path/where/script/are/main.sh
+```
+
+## Limitations
+For files with names separated with spaces, before to use the script rename that file to `trim` its name and it doesn't have spaces, otherwise you will get a error.

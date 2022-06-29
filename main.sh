@@ -4,7 +4,7 @@
 
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
-
+				
  if [[ $1 =~ $RARFILES ]]; then
 
 	unrar x $1
