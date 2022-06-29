@@ -5,3 +5,12 @@
 RARFILES='^.+\.rar$/gm'
 ZIPFILES='^.+\.zip$/gm'
 
+dpress(){
+
+ if [[ $1 =~ RARFILES ]]; then
+	unrar -x $1
+ elif [[ $1 =~ ZIPFILES ]]; then
+	unzip $1
+fi
+
+}
