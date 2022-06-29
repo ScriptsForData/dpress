@@ -7,7 +7,7 @@ ZIPFILES='^.+\.zip$'
 
  if [[ $1 =~ $RARFILES ]]; then
 
-	unrar -x $1
+	unrar x $1
 
  elif [[ $1 =~ $ZIPFILES ]]; then
 
