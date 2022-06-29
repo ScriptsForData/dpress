@@ -20,4 +20,4 @@ alias dpress=/~/path/where/script/are/main.sh
 ```
 
 ## Limitations
-For files with names separated with spaces, before to use the script rename that file to `trim` its name and it doesn't have spaces, otherwise you will get a error.
+For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an error.
