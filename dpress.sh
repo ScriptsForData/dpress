@@ -5,6 +5,11 @@
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
 				
+ARGUMENT='^-.$'
+
+if [[  ]]; then
+  
+fi
 
 case $1 in
   -l)
