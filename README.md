@@ -26,7 +26,7 @@ dpress <file>
 The script will detect if is rar or zip extension and use the tool with their arguments. The output will go to a new directory with compressed file name.
 
 ### Arguments:
-You can give to script some arguments to get different behavior that decompress only.
+You can give to script some arguments to get different behavior:
 
 | Argument | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
