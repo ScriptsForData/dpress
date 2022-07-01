@@ -12,7 +12,7 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 fi
 
 case $option in
-  -l)
+  '-l')
      if [[ $2 =~ $rarfiles ]]; then
 
       unrar l $2
@@ -23,7 +23,7 @@ case $option in
 
      fi
   ;;
-  -d)
+  '-d')
      if [[ $2 =~ $rarfiles ]]; then
 
       unrar $2 ad $3
