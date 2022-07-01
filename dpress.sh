@@ -4,46 +4,44 @@
 
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
-ARGUMENT='^-.$'
-option=''
+ARGUMENT='^-.+$'
 
 if [[ $1 =~ $ARGUMENT  ]]; then
-  $option=$1
+  case "$1" in
+    -l)
+       if [[ $2 =~ $RARFILES ]]; then
+
+        unrar l $2
+
+       elif [[ $2 =~ $ZIPFILES ]]; then
+
+        unzip -l $2
+
+       fi
+    ;;
+    -d)
+       if [[ $2 =~ $RARFILES ]]; then
+
+        unrar $2 ad $3
+
+       elif [[ $2 =~ $ZIPFILES ]]; then
+
+        unzip $2 -d $3
+
+       fi
+    ;;
+    *)
+       if [[ $1 =~ $RARFILES ]]; then
+
+        unrar x $1
+
+       elif [[ $1 =~ $ZIPFILES ]]; then
+
+        unzip $1
+
+       fi
+    ;;
+  esac
 fi
 
-case $option in
-  '-l')
-     if [[ $2 =~ $rarfiles ]]; then
-
-      unrar l $2
-
-     elif [[ $2 =~ $zipfiles ]]; then
-
-      unzip -l $2
-
-     fi
-  ;;
-  '-d')
-     if [[ $2 =~ $rarfiles ]]; then
-
-      unrar $2 ad $3
-
-     elif [[ $2 =~ $zipfiles ]]; then
-
-      unzip $2 -d $3
-
-     fi
-  ;;
-  *)
-     if [[ $1 =~ $rarfiles ]]; then
-
-      unrar x $1
-
-     elif [[ $1 =~ $zipfiles ]]; then
-
-      unzip $1
-
-     fi
-  ;;
-esac
 
