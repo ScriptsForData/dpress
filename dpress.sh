@@ -30,16 +30,10 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
        fi
     ;;
-    *)
-       if [[ $1 =~ $RARFILES ]]; then
-
-        unrar x $1
-
-       elif [[ $1 =~ $ZIPFILES ]]; then
-
-        unzip $1
-
-       fi
+    *) echo -e "Note: Select a valid argument\n " 
+       echo -e "-l: To list files before to decompress\n
+-d: To put a thid argument at end with path for output\n
+none: To decompress on current directory" 
     ;;
   esac
 else 
