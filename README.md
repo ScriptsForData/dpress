@@ -10,7 +10,13 @@ Is necessary that you have mentioned tools instaled on your computer, `unzip` an
 ./requirments.sh <os>
 ```
 Note
-:		Remember to give permitions to `requirements.sh` before to try to execute. OS arguments can be `-debian|-ubuntu` , `-arch` or `-mac`
+:		Remember to give permitions to `requirements.sh` before to try to execute. 
+
+| Argument | Description                                                                                 |
+|----------|---------------------------------------------------------------------------------------------|
+| `-debian`       | Use `apt` packer to install both tools, also works with `-ubuntu` argument usingh the same packer                                         |
+| `-mac`       | Use `brew` packer to install both tools |
+| `-arch`     | Use `pacman` packer to install both tools                                |
 
 ## How to use :ringed_planet:
 You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:
