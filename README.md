@@ -9,14 +9,15 @@ Is necessary that you have mentioned tools instaled on your computer, `unzip` an
 ```Bash
 ./requirments.sh <os>
 ```
-Note
-:		Remember to give permitions to `requirements.sh` before to try to execute. 
 
 | Argument | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
 | `-debian`       | Use `apt` packer to install both tools, also works with `-ubuntu` argument usingh the same packer                                         |
 | `-mac`       | Use `brew` packer to install both tools |
 | `-arch`     | Use `pacman` packer to install both tools                                |
+
+**Note**
+:		Remember to give permitions to `requirements.sh` before to try to execute. 
 
 ## How to use :ringed_planet:
 You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:
@@ -29,10 +30,7 @@ then, you can use it only writting the alias and giving the file on your termina
 ```Bash
 dpress <file> 
 ```
-The script will detect if is rar or zip extension and use the tool with their arguments. The output will go to a new directory with compressed file name.
-
-### Arguments:
-You can give to script some arguments to get different behavior:
+The script will detect if is rar or zip extension and use the tool with their arguments. The output will go to a new directory with compressed file name. To extra options use the following arguments:
 
 | Argument | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
@@ -41,4 +39,4 @@ You can give to script some arguments to get different behavior:
 | none     | Default behavior, just decompress files on current directory                                |
 
 ## Limitations :construction:
-For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
+For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os). Enjoy :bamboo:
