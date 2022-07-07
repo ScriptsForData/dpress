@@ -11,7 +11,12 @@ if [[ $OS =~ $ARCHREG ]]; then
 elif [[ $OS =~ $UBUNTUREG || $OS =~ $DEBIANREG ]]; then
   sudo apt install unzip unrar
 fi
-  
+
+case $1 in
+  -mac)brew install rar && brew install unzip
+  ;;
+  *) echo -e "You only can use -mac parameter"
+esac
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ case $1 in                                               │
