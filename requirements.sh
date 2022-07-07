@@ -1,6 +1,11 @@
 #!/bin/bash
 # Script to install tools that are necessary to run dpress.sh script
 
+OS=$(uname -r)
+ARCHREG='^.+arch.+$'
+ARCHREG='^.+ubuntu.+$'
+ARCHREG='^.+debian.+$'
+
 case $1 in
   -debian|-ubuntu) sudo apt install unzip unrar
   ;;
