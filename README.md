@@ -7,10 +7,12 @@ I don't have any graphic tool like unzip or unrar on my computer, so when I want
 Is necessary that you have mentioned tools instaled on your computer, `unzip` and `unrar` tools; It can be downloaded in easily way using `requirments.sh` file executing it as follow:
 
 ```Bash
-./requirments.sh <os>
+./requirments.sh 
 ```
-Note
-:		Remember to give permitions to `requirements.sh` before to try to execute. OS arguments can be `-debian|-ubuntu` , `-arch` or `-mac`
+For distros like Arch or Debian the script will detect automatically the os to use the correct package manager. Only for Mac you've to use `-mac` argument in script call.
+
+**Note**
+:		Remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
 You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:
