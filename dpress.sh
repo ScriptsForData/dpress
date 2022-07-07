@@ -4,6 +4,7 @@
 
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
+TARFILES='^.+\.tar\.gz$'
 ARGUMENT='^-.+$'
 
 if [[ $1 =~ $ARGUMENT  ]]; then
