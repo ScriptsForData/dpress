@@ -18,6 +18,10 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
         unzip -l $2
 
+       elif [[ $2 =~ $TARFILES ]]; then
+
+        tar -xzvfl $1 
+
        fi
     ;;
     -d)
@@ -49,8 +53,5 @@ else
        elif [[ $1 =~ $TARFILES ]]; then
 
         tar -xzvf $1 
-
        fi
 fi
-
-
