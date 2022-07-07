@@ -3,18 +3,28 @@
 
 OS=$(uname -r)
 ARCHREG='^.+arch.+$'
-ARCHREG='^.+ubuntu.+$'
-ARCHREG='^.+debian.+$'
+UBUNTUREG='^.+ubuntu.+$'
+DEBIANREG='^.+debian.+$'
 
-case $1 in
-  -debian|-ubuntu) sudo apt install unzip unrar
-  ;;
-  -arch) sudo pacman -S unzip unrar  
-  ;;
-  -mac) brew  install rar && brew install unzip
-  ;;
-  *) echo "NOTE: Select some argument to use a package manager and install the requirements"
-esac
+if [[ $OS =~ $ARCHREG ]]; then
+  sudo pacman -S unzip unrar
+elif [[ $OS =~ $UBUNTUREG || $OS =~ $DEBIANREG ]]; then
+  sudo apt install unzip unrar
+fi
+  
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ case $1 in                                               │
+# │   -debian|-ubuntu) sudo apt install unzip unrar          │
+# │   ;;                                                     │
+# │   -arch) sudo pacman -S unzip unrar                      │
+# │   ;;                                                     │
+# │   -mac) brew  install rar && brew install unzip          │
+# │   ;;                                                     │
+# │   *) echo "NOTE: Select some argument to use a           │
+# │  package manager and install the requirements"           │
+# │ esac                                                     │
+# ╰──────────────────────────────────────────────────────────╯
 
 
 
