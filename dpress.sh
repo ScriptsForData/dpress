@@ -46,6 +46,10 @@ else
 
         unzip $1
 
+       elif [[ $1 =~ $TARFILES ]]; then
+
+        tar -xzvf $1 
+
        fi
 fi
 
