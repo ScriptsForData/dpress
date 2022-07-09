@@ -53,5 +53,8 @@ else
        elif [[ $1 =~ $TARFILES ]]; then
 
         tar -xzvf $1 
+
+      else
+        echo "Note: You must select a compressed file"
        fi
 fi
