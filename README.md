@@ -1,23 +1,18 @@
 # Files decompressor 
 
 ## Motivation :bulb:
-I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use `unzip` or `unrar` tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, so I decide to create a script that combine both and be easy to use.
+I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use `unzip` or `unrar` tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, and don't mention arguments needed to decompress `tar.gz` files, so I decide to create a script that combine the three commands to be easy to use.
 
 ## Requirements :mag_right:
-Is necessary that you have mentioned tools instaled on your computer, `unzip` and `unrar` tools; It can be downloaded in easily way using `requirments.sh` file executing it as follow:
+Is necessary that you have mentioned tools instaled on your computer, `unzip` and `unrar` tools; `tar` actually comes instaled on Mac and Linux. First two tools can be downloaded in easily way using `requirments.sh` file executing it as follow:
 
 ```Bash
-./requirments.sh <os>
+./requirments.sh 
 ```
-
-| Argument | Description                                                                                 |
-|----------|---------------------------------------------------------------------------------------------|
-| `-debian`       | Use `apt` packer to install both tools, also works with `-ubuntu` argument usingh the same packer                                         |
-| `-mac`       | Use `brew` packer to install both tools |
-| `-arch`     | Use `pacman` packer to install both tools                                |
+For distros like Arch or Debian the script will detect automatically the os to use the correct package manager. Only for Mac you must to use `-mac` argument in script call.
 
 **Note**
-:		Remember to give permitions to `requirements.sh` before to try to execute. 
+:		Remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
 You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:

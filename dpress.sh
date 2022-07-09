@@ -4,6 +4,7 @@
 
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
+TARFILES='^.+\.tar\.gz$'
 ARGUMENT='^-.+$'
 
 if [[ $1 =~ $ARGUMENT  ]]; then
@@ -16,6 +17,10 @@ if [[ $1 =~ $ARGUMENT  ]]; then
        elif [[ $2 =~ $ZIPFILES ]]; then
 
         unzip -l $2
+
+       elif [[ $2 =~ $TARFILES ]]; then
+
+        tar -xzvfl $1 
 
        fi
     ;;
@@ -45,7 +50,8 @@ else
 
         unzip $1
 
+       elif [[ $1 =~ $TARFILES ]]; then
+
+        tar -xzvf $1 
        fi
 fi
-
-
