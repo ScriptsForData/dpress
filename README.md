@@ -34,4 +34,4 @@ The script will detect if is rar or zip extension and use the tool with their ar
 | none     | Default behavior, just decompress files on current directory                                |
 
 ## Limitations :construction:
-For files with names separated with spaces, rename that file to `trim` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os). Enjoy :bamboo:
+For files with names separated with spaces, rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os). Enjoy :bamboo:
