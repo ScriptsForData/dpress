@@ -18,7 +18,7 @@ For distros like Arch or Debian the script will detect automatically the os to u
 You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:
 
 ```Bash
-alias dpress=/~/path/where/github/project/are/file-decompresser/dpress.sh
+alias dpress=/~/path/file-decompresser/dpress.sh
 ```
 
 then, you can use it only writting the alias and giving the file on your terminal:
