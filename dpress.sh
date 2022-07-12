@@ -20,11 +20,16 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
        elif [[ $2 =~ $TARFILES ]]; then
 
-        tar -ztvf $2 
+        tar -xzvfl $1 
 
        fi
     ;;
     -d)
+      if [[ $# -ne 3 ]]; then
+        echo "Expected argument were not given, you've to follow this syntax:
+        <dpress -d file.extension directory>"
+
+      else
        if [[ $2 =~ $RARFILES ]]; then
 
         unrar $2 ad $3
@@ -35,9 +40,10 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
        elif [[ $2 =~ $TARFILES ]]; then
 
-         tar -xf $2 --directory $3
+        tar -xf $2 --directory $3
 
        fi
+      fi
     ;;
     *) echo -e "Note: Select a valid argument\n " 
        echo -e "-l: To list files before to decompress\n
