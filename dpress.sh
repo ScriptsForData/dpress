@@ -33,6 +33,10 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
         unzip $2 -d $3
 
+       elif [[ $2 =~ $TARFILES ]]; then
+
+         tar -xf $2 --directory $3
+
        fi
     ;;
     *) echo -e "Note: Select a valid argument\n " 
