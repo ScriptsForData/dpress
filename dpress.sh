@@ -20,7 +20,7 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
        elif [[ $2 =~ $TARFILES ]]; then
 
-        tar -xzvfl $1 
+        tar -ztvf $2 
 
        fi
     ;;
