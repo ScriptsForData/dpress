@@ -7,7 +7,7 @@ ZIPFILES='^.+\.zip$'
 TARFILES='^.+\.tar\.gz$'
 ARGUMENT='^-.+$'
 
-listFiles () { # compressed_file 
+listFiles () {  
        if [[ $1 =~ $RARFILES ]]; then
 
         unrar l $1
