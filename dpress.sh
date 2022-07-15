@@ -7,6 +7,7 @@ ZIPFILES='^.+\.zip$'
 TARFILES='^.+\.tar\.gz$'
 ARGUMENT='^-.+$'
 
+# List files before to decompress
 listFiles () {  
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -23,6 +24,7 @@ listFiles () {
        fi
 }
 
+# Decompress files in another directory
 decompressAnotherDir () {
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -39,6 +41,7 @@ decompressAnotherDir () {
        fi
 }
 
+# Decompress files in current directory
 onliDecompress () {
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -73,15 +76,16 @@ if [[ $1 =~ $ARGUMENT  ]]; then
       else
         decompressAnotherDir $2 $3
       fi
-
     ;;
+
     *) echo -e "Note: Select a valid argument\n " 
        echo -e "-l: To list files before to decompress\n
 -d: To put a thid argument at end with path for output\n
 none: To decompress on current directory" 
-
     ;;
+
   esac
+
 else 
 
   onliDecompress $1
