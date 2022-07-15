@@ -63,19 +63,6 @@ if [[ $1 =~ $ARGUMENT  ]]; then
     -l)
 
       listFiles $2 
-       # if [[ $2 =~ $RARFILES ]]; then
-       #
-       #  unrar l $2
-       #
-       # elif [[ $2 =~ $ZIPFILES ]]; then
-       #
-       #  unzip -l $2
-       #
-       # elif [[ $2 =~ $TARFILES ]]; then
-       #
-       #  tar -xzvfl $1 
-       #
-       # fi
     ;;
     -d)
       if [[ $# -ne 3 ]]; then
@@ -84,19 +71,6 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
       else
         decompressAnotherDir $2 $3
-       # if [[ $2 =~ $RARFILES ]]; then
-       #
-       #  unrar $2 ad $3
-       #
-       # elif [[ $2 =~ $ZIPFILES ]]; then
-       #
-       #  unzip $2 -d $3
-       #
-       # elif [[ $2 =~ $TARFILES ]]; then
-       #
-       #  tar -xf $2 --directory $3
-       #
-       # fi
       fi
     ;;
     *) echo -e "Note: Select a valid argument\n " 
@@ -107,19 +81,4 @@ none: To decompress on current directory"
   esac
 else 
   onliDecompress $1
-      #  if [[ $1 =~ $RARFILES ]]; then
-      #
-      #   unrar x $1
-      #
-      #  elif [[ $1 =~ $ZIPFILES ]]; then
-      #
-      #   unzip $1
-      #
-      #  elif [[ $1 =~ $TARFILES ]]; then
-      #
-      #   tar -xzvf $1 
-      #
-      # else
-      #   echo "Note: You must select a compressed file"
-      #  fi
 fi
