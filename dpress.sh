@@ -26,7 +26,7 @@ listFiles () { # compressed_file
 decompressAnotherDir () {
        if [[ $1 =~ $RARFILES ]]; then
 
-        unrar $1 ad $2
+        unrar e $1 $2
 
        elif [[ $1 =~ $ZIPFILES ]]; then
 
