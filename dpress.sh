@@ -64,6 +64,7 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
       listFiles $2 
     ;;
+
     -d)
       if [[ $# -ne 3 ]]; then
         echo "Expected argument were not given, you've to follow this syntax:
@@ -72,13 +73,17 @@ if [[ $1 =~ $ARGUMENT  ]]; then
       else
         decompressAnotherDir $2 $3
       fi
+
     ;;
     *) echo -e "Note: Select a valid argument\n " 
        echo -e "-l: To list files before to decompress\n
 -d: To put a thid argument at end with path for output\n
 none: To decompress on current directory" 
+
     ;;
   esac
 else 
+
   onliDecompress $1
+
 fi
