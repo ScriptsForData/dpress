@@ -7,6 +7,41 @@ ZIPFILES='^.+\.zip$'
 TARFILES='^.+\.tar\.gz$'
 ARGUMENT='^-.+$'
 
+listFiles () { # compressed_file 
+       if [[ $1 =~ $RARFILES ]]; then
+
+        unrar l $1
+
+       elif [[ $1 =~ $ZIPFILES ]]; then
+
+        unzip -l $1
+
+       elif [[ $1 =~ $TARFILES ]]; then
+
+        tar -xzvfl $1 
+
+       fi
+}
+
+decompressAnotherDir () {
+       if [[ $1 =~ $RARFILES ]]; then
+
+        unrar $1 ad $2
+
+       elif [[ $1 =~ $ZIPFILES ]]; then
+
+        unzip $1 -d $2
+
+       elif [[ $1 =~ $TARFILES ]]; then
+
+        tar -xf $1 --directory $2
+
+       fi
+      fi
+}
+
+
+
 if [[ $1 =~ $ARGUMENT  ]]; then
   case "$1" in
     -l)
