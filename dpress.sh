@@ -19,7 +19,7 @@ listFiles () {
 
        elif [[ $1 =~ $TARFILES ]]; then
 
-        tar -xzvfl $1 
+        tar -ztvf $1 
 
        fi
 }
