@@ -41,6 +41,8 @@ decompressAnotherDir () {
        fi
 }
 
+# Create a compressed file, regarding their name and extension it will use the 
+# correct tool.
 compressFiles () {
        if [[ $1 =~ $RARFILES ]]; then
 
