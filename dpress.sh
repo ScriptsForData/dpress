@@ -41,6 +41,22 @@ decompressAnotherDir () {
        fi
 }
 
+compressFiles () {
+       if [[ $1 =~ $RARFILES ]]; then
+
+        rar a $2 $1
+
+       elif [[ $1 =~ $ZIPFILES ]]; then
+
+        zip -r $2 $1
+
+       elif [[ $1 =~ $TARFILES ]]; then
+
+        tar -pvczf $2 $1
+
+       fi
+}
+
 # Decompress files in current directory
 onliDecompress () {
        if [[ $1 =~ $RARFILES ]]; then
