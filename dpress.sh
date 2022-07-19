@@ -44,15 +44,15 @@ decompressAnotherDir () {
 compressFiles () {
        if [[ $1 =~ $RARFILES ]]; then
 
-        rar a $2 $1
+        rar a $1 $2
 
        elif [[ $1 =~ $ZIPFILES ]]; then
 
-        zip -r $2 $1
+        zip -r $1 $2
 
        elif [[ $1 =~ $TARFILES ]]; then
 
-        tar -pvczf $2 $1
+        tar -zcvf $1 $2
 
        fi
 }
@@ -83,6 +83,15 @@ if [[ $1 =~ $ARGUMENT  ]]; then
 
       listFiles $2 
     ;;
+    -c)
+      if [[ $# -ne 3 ]]; then
+        echo "Expected argument were not given, you've to follow this syntax:
+        <dpress -d file.extension directory>"
+
+      else
+        compressFiles $2 $3
+      fi
+     ;;   
 
     -d)
       if [[ $# -ne 3 ]]; then
