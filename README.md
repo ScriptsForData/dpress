@@ -25,7 +25,7 @@ then, you can use it only writting the alias and giving the file on your termina
 ```Bash
 dpress <file> 
 ```
-The script will detect file extension and use the tool with their arguments to decompress in current directory. To change behavior before used one of these arguments/flags:
+The script will detect file extension and use the tool with their arguments to decompress in current directory. To change default behavior, use one of these arguments/flags:
 
 | Argument | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
