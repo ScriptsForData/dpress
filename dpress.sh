@@ -63,8 +63,18 @@ decompressAnotherDir () {
        fi
 }
 
-# Create a compressed file, regarding their name and extension it will use the 
-# correct tool.
+#######################################
+# Compress file in current directory
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of new compressed file
+#   Name of file to compress
+# Outputs:
+#   None
+#######################################
 compressFiles () {
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -85,7 +95,18 @@ compressFiles () {
        fi
 }
 
+#######################################
 # Decompress files in current directory
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of new compressed file
+#   Name of file to compress
+# Outputs:
+#   None
+#######################################
 decompress () {
        if [[ $1 =~ $RARFILES ]]; then
 
