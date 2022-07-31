@@ -32,6 +32,10 @@ listFiles () {
 
         tar -ztvf $1 
 
+       elif [[ $1 =~ $XZFILES ]]; then
+
+        tar Jtvf $1 
+
        fi
 }
 
@@ -88,7 +92,7 @@ compressFiles () {
 
         tar -zcvf $1 $2
 
-       elif [[ $1 =~ $XZFILES]]; then
+       elif [[ $1 =~ $XZFILES ]]; then
 
         tar cJvf $1 $2
 
