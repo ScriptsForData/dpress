@@ -60,7 +60,7 @@ decompressAnotherDir () {
 
         unzip $1 -d $2
 
-       elif [[ $1 =~ $TARFILES ]]; then
+       elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
 
         tar -xf $1 --directory $2
 
