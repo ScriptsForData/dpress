@@ -8,7 +8,15 @@ TARFILES='^.+\.tar\.gz$'
 XZFILES='^.+\.tar\.xz$'
 ARGUMENT='^-.+$'
 
-# List files before to decompress
+#######################################
+# List files inside compressed file.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Outputs:
+#   Writes files that are beging decompressed to stdout.
+#######################################
 listFiles () {  
        if [[ $1 =~ $RARFILES ]]; then
 
