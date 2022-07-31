@@ -65,7 +65,7 @@ compressFiles () {
 }
 
 # Decompress files in current directory
-onliDecompress () {
+decompress () {
        if [[ $1 =~ $RARFILES ]]; then
 
         unrar x $1
@@ -124,6 +124,6 @@ none: To decompress on current directory"
 
 else 
 
-  onliDecompress $1
+  decompress $1
 
 fi
