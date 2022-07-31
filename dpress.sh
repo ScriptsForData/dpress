@@ -116,13 +116,9 @@ decompress () {
 
         unzip $1
 
-       elif [[ $1 =~ $TARFILES ]]; then
+       elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
 
         tar -xzvf $1 
-
-       elif [[ $1 =~ $XZFILES]]; then
-
-        tar xvf $1
 
       else
         echo "Note: You must select a compressed file"
