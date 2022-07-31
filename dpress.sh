@@ -5,6 +5,7 @@
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
 TARFILES='^.+\.tar\.gz$'
+XZFILES='^.+\.tar\.xz$'
 ARGUMENT='^-.+$'
 
 # List files before to decompress
