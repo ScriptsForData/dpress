@@ -35,4 +35,7 @@ The script will detect file extension and use the tool with their arguments to d
 | none     | Default behavior, just decompress files on current directory                                |
 
 ## Limitations :construction:
-For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os). Enjoy :bamboo:
+1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
+2) For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
+
+Enjoy :bamboo:
