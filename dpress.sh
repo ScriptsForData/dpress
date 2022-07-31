@@ -11,9 +11,11 @@ ARGUMENT='^-.+$'
 #######################################
 # List files inside compressed file.
 # Globals:
-#   None
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
 # Arguments:
-#   None
+#   Name of compressed file
 # Outputs:
 #   Writes files that are beging decompressed to stdout.
 #######################################
@@ -36,9 +38,12 @@ listFiles () {
 #######################################
 # Decompress files in another directory.
 # Globals:
-#   None
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
 # Arguments:
-#   None
+#   Name of compressed file
+#   Name of directory to decompress files to
 # Outputs:
 #   None
 #######################################
