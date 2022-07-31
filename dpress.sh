@@ -33,7 +33,15 @@ listFiles () {
        fi
 }
 
-# Decompress files in another directory
+#######################################
+# Decompress files in another directory.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Outputs:
+#   None
+#######################################
 decompressAnotherDir () {
        if [[ $1 =~ $RARFILES ]]; then
 
