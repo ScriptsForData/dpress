@@ -57,6 +57,10 @@ compressFiles () {
 
         tar -zcvf $1 $2
 
+       elif [[ $1 =~ $XZFILES]]; then
+
+        tar cJvf $1 $2
+
        fi
 }
 
