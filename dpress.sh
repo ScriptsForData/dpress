@@ -5,9 +5,20 @@
 RARFILES='^.+\.rar$'
 ZIPFILES='^.+\.zip$'
 TARFILES='^.+\.tar\.gz$'
+XZFILES='^.+\.tar\.xz$'
 ARGUMENT='^-.+$'
 
-# List files before to decompress
+#######################################
+# List files inside compressed file.
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of compressed file
+# Outputs:
+#   Writes files that are beging decompressed to stdout.
+#######################################
 listFiles () {  
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -21,10 +32,25 @@ listFiles () {
 
         tar -ztvf $1 
 
+       elif [[ $1 =~ $XZFILES ]]; then
+
+        tar Jtvf $1 
+
        fi
 }
 
-# Decompress files in another directory
+#######################################
+# Decompress files in another directory.
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of compressed file
+#   Name of directory to decompress files to
+# Outputs:
+#   None
+#######################################
 decompressAnotherDir () {
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -34,15 +60,25 @@ decompressAnotherDir () {
 
         unzip $1 -d $2
 
-       elif [[ $1 =~ $TARFILES ]]; then
+       elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
 
         tar -xf $1 --directory $2
 
        fi
 }
 
-# Create a compressed file, regarding their name and extension it will use the 
-# correct tool.
+#######################################
+# Compress file in current directory
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of new compressed file
+#   Name of file to compress
+# Outputs:
+#   None
+#######################################
 compressFiles () {
        if [[ $1 =~ $RARFILES ]]; then
 
@@ -56,11 +92,26 @@ compressFiles () {
 
         tar -zcvf $1 $2
 
+       elif [[ $1 =~ $XZFILES ]]; then
+
+        tar cJvf $1 $2
+
        fi
 }
 
+#######################################
 # Decompress files in current directory
-onliDecompress () {
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of new compressed file
+#   Name of file to compress
+# Outputs:
+#   None
+#######################################
+decompress () {
        if [[ $1 =~ $RARFILES ]]; then
 
         unrar x $1
@@ -69,7 +120,7 @@ onliDecompress () {
 
         unzip $1
 
-       elif [[ $1 =~ $TARFILES ]]; then
+       elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
 
         tar -xzvf $1 
 
@@ -115,6 +166,6 @@ none: To decompress on current directory"
 
 else 
 
-  onliDecompress $1
+  decompress $1
 
 fi
