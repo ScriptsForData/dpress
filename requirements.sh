@@ -7,9 +7,9 @@ UBUNTUREG='^.+ubuntu.+$'
 DEBIANREG='^.+debian.+$'
 
 if [[ $OS =~ $ARCHREG ]]; then
-  sudo pacman -S unzip unrar
+  sudo pacman -S unzip unrar xz
 elif [[ $OS =~ $UBUNTUREG || $OS =~ $DEBIANREG ]]; then
-  sudo apt install unzip unrar
+  sudo apt install unzip unrar xz
 fi
 
 case $1 in
