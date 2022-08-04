@@ -34,7 +34,7 @@ listFiles () {
 
        elif [[ $1 =~ $XZFILES ]]; then
 
-        tar Jtvf $1 
+        tar tvf $1 
 
        fi
 }
