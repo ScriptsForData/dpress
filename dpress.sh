@@ -114,15 +114,15 @@ compressFiles () {
 decompress () {
        if [[ $1 =~ $RARFILES ]]; then
 
-        unrar x $1
+        unrar x $1 > /dev/null
 
        elif [[ $1 =~ $ZIPFILES ]]; then
 
-        unzip $1
+        unzip $1 > /dev/null
 
        elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
 
-        tar -xzvf $1 
+        tar -xzvf $1 > /dev/null
 
       else
         echo "Note: You must select a compressed file"
