@@ -18,6 +18,7 @@ case $1 in
   -arch)sudo pacman -S unzip unrar xz
   ;;
   -ubuntu)sudo apt install unzip unrar xz
+  ;;
   *) echo -e "You only can use -mac parameter"
 esac
 
