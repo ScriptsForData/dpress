@@ -15,9 +15,9 @@ fi
 case $1 in
   -mac)brew install rar && brew install unzip
   ;;
-  -arch)sudo pacman -S unzip unrar xz
+  -arch)sudo pacman -S unzip zip unrar rar xz
   ;;
-  -ubuntu)sudo apt install unzip unrar xz
+  -ubuntu)sudo apt install unzip zip unrar rar xz
   ;;
   *) echo -e "You only can use -mac parameter"
 esac
