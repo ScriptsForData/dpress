@@ -37,5 +37,6 @@ The script will detect file extension and use the tool with their arguments to d
 ## Limitations :construction:
 1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
 2) For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
+3) You must have installed `zip` and `rar` tool before to try execute `requirements.sh`(where you install `unzip` etc) on `Arch` distrution only. This 'cause isn't possible install they from `pacman` repository.
 
 Enjoy :bamboo:
