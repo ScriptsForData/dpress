@@ -82,7 +82,7 @@ decompressAnotherDir () {
 compressFiles () {
        if [[ $1 =~ $RARFILES ]]; then
 
-        rar a $1 $2
+        rar a -r $1 $2
 
        elif [[ $1 =~ $ZIPFILES ]]; then
 
