@@ -15,7 +15,7 @@ For distros like Arch or Debian the script will detect automatically the os to u
 :		Remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
-You can run the script on your terminal each time do you need or option that I recomend is save the script as alias on your bash/zsh rc file as follow:
+You can run the script on your terminal each time do you need or the option that I recomend is save the script as alias on your bash/zsh rc file as follow:
 
 ```Bash
 alias dpress=/~/path/file-decompresser/dpress.sh
@@ -23,7 +23,7 @@ alias dpress=/~/path/file-decompresser/dpress.sh
 
 then, you can use it only writting the alias and giving the file on your terminal:
 ```Bash
-dpress <file> 
+dpress <flag> <file.extension> <...>  
 ```
 The script will detect file extension and use the tool with their arguments to decompress in current directory. To change default behavior, use one of these arguments/flags:
 
@@ -33,6 +33,9 @@ The script will detect file extension and use the tool with their arguments to d
 | `-d`       | Giving a third argument you can select the directory where files goes when are decompressed |
 | `-c`       | Create a compressed file, can be `zip`, `rar`,`tar.gz` or `tar.xz` file|
 | none     | Default behavior, just decompress files on current directory                                |
+
+**Note**
+:		Default behavior is always remove compressed file after decompress it, take care of that.
 
 ## Limitations :construction:
 1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
