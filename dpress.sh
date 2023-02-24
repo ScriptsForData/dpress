@@ -22,19 +22,19 @@ ARGUMENT='^-.+$'
 listFiles () {
     if [[ $1 =~ $RARFILES ]]; then
         
-        unrar l $1
+        unrar l "$1"
         
         elif [[ $1 =~ $ZIPFILES ]]; then
         
-        unzip -l $1
+        unzip -l "$1"
         
         elif [[ $1 =~ $TARFILES ]]; then
         
-        tar -ztvf $1
+        tar -ztvf "$1"
         
         elif [[ $1 =~ $XZFILES ]]; then
         
-        tar tvf $1
+        tar tvf "$1"
         
     fi
 }
@@ -54,15 +54,15 @@ listFiles () {
 decompressAnotherDir () {
     if [[ $1 =~ $RARFILES ]]; then
         
-        unrar e $1 $2
+        unrar e "$1" "$2"
         
         elif [[ $1 =~ $ZIPFILES ]]; then
         
-        unzip $1 -d $2
+        unzip "$1" -d "$2"
         
         elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
         
-        tar -xf $1 --directory $2
+        tar -xf "$1" --directory "$2"
         
     fi
 }
@@ -82,19 +82,19 @@ decompressAnotherDir () {
 compressFiles () {
     if [[ $1 =~ $RARFILES ]]; then
         
-        rar a -r $1 $2
+        rar a -r "$1" "$2"
         
         elif [[ $1 =~ $ZIPFILES ]]; then
         
-        zip -r $1 $2
+        zip -r "$1" "$2"
         
         elif [[ $1 =~ $TARFILES ]]; then
         
-        tar -zcvf $1 $2
+        tar -zcvf "$1" "$2"
         
         elif [[ $1 =~ $XZFILES ]]; then
         
-        tar cJvf $1 $2
+        tar cJvf "$1" "$2"
         
     fi
 }
@@ -114,15 +114,15 @@ compressFiles () {
 decompress () {
     if [[ $1 =~ $RARFILES ]]; then
         
-        unrar x $1 > /dev/null
+        unrar x "$1" > /dev/null
         
         elif [[ $1 =~ $ZIPFILES ]]; then
         
-        unzip $1 > /dev/null
+        unzip "$1" > /dev/null
         
         elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
         
-        tar -xzvf $1 > /dev/null
+        tar -xzvf "$1" > /dev/null
         
     else
         echo "Note: You must select a compressed file"
@@ -133,14 +133,14 @@ decompress () {
 if [[ $1 =~ $ARGUMENT ]]; then
     case "$1" in
         -l)
-            listFiles $2
+            listFiles "$2"
         ;;
         -c)
             if [[ $# -ne 3 ]]; then
                 echo "Expected argument were not given, you've to follow this syntax:
                 <dpress -d file.extension directory>"
       else
-        compressFiles $2 $3
+        compressFiles "$2" "$3"
       fi
      ;;
     -d)
@@ -149,8 +149,8 @@ if [[ $1 =~ $ARGUMENT ]]; then
                 <dpress -d file.extension directory>"
                 
             else
-                decompressAnotherDir $2 $3
-                rm -rf $2
+                decompressAnotherDir "$2" "$3"
+                rm -rf "$2"
             fi
         ;;
         
@@ -163,7 +163,7 @@ if [[ $1 =~ $ARGUMENT ]]; then
     esac
 else
     
-    decompress $1
-    rm -r $1
+    decompress "$1"
+    rm -r "$1"
     
 fi
