@@ -1,6 +1,4 @@
 # Files decompressor 
-
-## Motivation :bulb:
 I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use `unzip` or `unrar` tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, and don't mention arguments needed to decompress `tar.gz` files, so I decide to create a script that combine the three commands to be easy to use.
 
 ## Requirements :mag_right:
@@ -42,4 +40,5 @@ The script will detect file extension and use the tool with their arguments to d
 2) For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
 3) You must have installed `zip` and `rar` tool before to try execute `requirements.sh`(where you install `unzip` etc) on `Arch` distrution only. This 'cause isn't possible install they from `pacman` repository.
 
+---
 Enjoy :bamboo:
