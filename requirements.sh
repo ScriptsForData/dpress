@@ -5,10 +5,11 @@ OS=$(uname -r)
 ARCHREG='^.+arch.+$'
 UBUNTUREG='^.+ubuntu.+$'
 DEBIANREG='^.+debian.+$'
+WSL='^.+microsoft.+$'
 
 if [[ $OS =~ $ARCHREG ]]; then
   sudo pacman -S unzip unrar xz
-elif [[ $OS =~ $UBUNTUREG || $OS =~ $DEBIANREG ]]; then
+elif [[ $OS =~ $UBUNTUREG || $OS =~ $DEBIANREG || $OS =~ $WSL ]]; then
   sudo apt install unzip unrar xz
 fi
 
