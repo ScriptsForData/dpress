@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to decompress files for rar or zip entension using unzip and unrar tool.
+# Script to handle files in .rar, .zip or .tar extension unifing syntaxis for all tools.
 # Standoge 28-06-22
 
 RARFILES='^.+\.rar$'
@@ -165,10 +165,10 @@ if [[ $1 =~ $ARGUMENT ]]; then
                 done < "$file_text"
             fi
         ;;
-        *) echo -e "Note: Select a valid argument\n "
-            echo -e "-l: To list files before to decompress\n
-           -d: To put a thid argument at end with path for output\n
-            none: To decompress on current directory"
+    *) echo "Error: Select a valid argument.
+        -l: To list files before to decompress
+        -d: To put a thid argument at end with path for output
+        none: To decompress on current directory"
         ;;
     esac
 else
