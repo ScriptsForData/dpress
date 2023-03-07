@@ -9,8 +9,7 @@ Is necessary that you have mentioned tools instaled on your computer, `unzip`,`u
 ```
 For distros like Arch or Debian the script will detect automatically the os to use the correct package manager. Only for Mac you must to use `-mac` argument in script call.
 
-**Note**
->		Remember to give permitions to `requirements.sh` before to try to execute.
+>	`Note:` remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
 You can run the script on your terminal each time do you need or the option that I recomend is save the script as alias on your bash/zsh rc file as follow:
@@ -34,7 +33,7 @@ The script will detect file extension and use the tool with their arguments to d
 | none     | Default behavior, just decompress files on current directory                                |
 
 **Note**
->		Default behavior is always remove compressed file after decompress it, take care of that.
+>	`Note:`	default behavior is always remove compressed file after decompress it, take care of that.
 
 ## Limitations :construction:
 1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
