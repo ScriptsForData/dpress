@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 # Script to handle files in .rar, .zip or .tar extension unifing syntaxis for all tools.
 # Standoge 28-06-22
 
@@ -129,7 +129,7 @@ decompress () {
     fi
 }
 
-
+# Main entry point
 if [[ $1 =~ $ARGUMENT ]]; then
     case "$1" in
         -l)
