@@ -153,13 +153,23 @@ if [[ $1 =~ $ARGUMENT ]]; then
                 rm -rf "$2"
             fi
         ;;
-        
+    -m)
+      if [[ $# -ne 2 ]]; then
+                echo "Expected argument were not given, you've to follow this syntax:
+                <dpress -m file.txt>"
+                
+            else
+                file_text=$2
+                while read LINE; do
+                   decompress "$LINE" 
+                done < "$file_text"
+            fi
+        ;;
         *) echo -e "Note: Select a valid argument\n "
             echo -e "-l: To list files before to decompress\n
            -d: To put a thid argument at end with path for output\n
             none: To decompress on current directory"
         ;;
-        
     esac
 else
     
