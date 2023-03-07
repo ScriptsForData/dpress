@@ -30,6 +30,7 @@ The script will detect file extension and use the tool with their arguments to d
 | `-l`       | List files in compressed file before to decompress                                          |
 | `-d`       | Giving a third argument you can select the directory where files goes when are decompressed |
 | `-c`       | Create a compressed file, can be `zip`, `rar`,`tar.gz` or `tar.xz` file|
+| `-m`       | Decompress an array of files. For this you've to pass an `.txt` file with file names. One per line|
 | none     | Default behavior, just decompress files on current directory                                |
 
 **Note**
