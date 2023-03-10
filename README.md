@@ -12,25 +12,23 @@ For distros like Arch or Debian the script will detect automatically the os to u
 >	`Note:` remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
-You can run the script on your terminal each time do you need or the option that I recomend is save the script as alias on your bash/zsh rc file as follow:
+
+Just execute:
 
 ```Bash
-alias dpress=/~/path/file-decompresser/dpress.sh
+./dpress.sh <file.extension> <...>
 ```
-
-then, you can use it only writting the alias and giving the file on your terminal:
-```Bash
-dpress <flag> <file.extension> <...>  
-```
-The script will detect file extension and use the tool with their arguments to decompress in current directory. To change default behavior, use one of these arguments/flags:
+The script will detect file extension and use the tool with their arguments to work with in the current directory. To change default behavior, use one of these arguments/flags:
 
 | Argument | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
 | `-l`       | List files in compressed file before to decompress                                          |
 | `-d`       | Giving a third argument you can select the directory where files goes when are decompressed |
 | `-c`       | Create a compressed file, can be `zip`, `rar`,`tar.gz` or `tar.xz` file|
-| `-m`       | Decompress an array of files. For this you've to pass an `.txt` file with file names. One per line|
+| `-r`       | Decompress an array of files. For this you've to pass an `.txt` file with file names. One per line|
 | none     | Default behavior, just decompress files on current directory                                |
+
+Check `wiki` to see some examples to learn how to use it.
 
 **Note**
 >	`Note:`	default behavior is always remove compressed file after decompress it, take care of that.
