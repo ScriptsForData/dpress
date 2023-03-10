@@ -16,7 +16,7 @@ For distros like Arch or Debian the script will detect automatically the os to u
 Just execute:
 
 ```Bash
-./dpress.sh <file.extension> <...>
+./dpress.sh <argument> <file.extension> <...>
 ```
 The script will detect file extension and use the tool with their arguments to work with in the current directory. To change default behavior, use one of these arguments/flags:
 
