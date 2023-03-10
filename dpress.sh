@@ -153,7 +153,7 @@ if [[ $1 =~ $ARGUMENT ]]; then
                 rm -rf "$2"
             fi
         ;;
-    -m)
+    -r)
       if [[ $# -ne 2 ]]; then
                 echo "Expected argument were not given, you've to follow this syntax:
                 <dpress -m file.txt>"
