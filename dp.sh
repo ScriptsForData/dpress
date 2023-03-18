@@ -8,36 +8,6 @@ TARFILES='^.+\.tar\.gz$'
 XZFILES='^.+\.tar\.xz$'
 ARGUMENT='^-.+$'
 
-#######################################
-# List files inside compressed file.
-# Globals:
-#   RARFILES
-#   ZIPFILES
-#   TARFILES
-# Arguments:
-#   Name of compressed file
-# Outputs:
-#   Writes files that are beging decompressed to stdout.
-#######################################
-listFiles () {
-    if [[ $1 =~ $RARFILES ]]; then
-        
-        unrar l "$1"
-        
-        elif [[ $1 =~ $ZIPFILES ]]; then
-        
-        unzip -l "$1"
-        
-        elif [[ $1 =~ $TARFILES ]]; then
-        
-        tar -ztvf "$1"
-        
-        elif [[ $1 =~ $XZFILES ]]; then
-        
-        tar tvf "$1"
-        
-    fi
-}
 
 #######################################
 # Decompress files in another directory.

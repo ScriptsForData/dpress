@@ -1,4 +1,34 @@
-echo "# this file is located in 'src/list_command.sh'"
-echo "# code for 'dpress list' goes here"
-echo "# you can edit it freely and regenerate (it will not be overwritten)"
-inspect_args
+source_file=${args[source]}
+
+#######################################
+# List files inside compressed file.
+# Globals:
+#   RARFILES
+#   ZIPFILES
+#   TARFILES
+# Arguments:
+#   Name of compressed file
+# Outputs:
+#   Writes files that are beging decompressed to stdout.
+#######################################
+listFiles () {
+    if [[ $source_file =~ $RARFILES ]]; then
+        
+        unrar l "$source_file"
+        
+        elif [[ $source_file =~ $ZIPFILES ]]; then
+        
+        unzip -l "$source_file"
+        
+        elif [[ $source_file =~ $TARFILES ]]; then
+        
+        tar -ztvf "$source_file"
+        
+        elif [[ $source_file =~ $XZFILES ]]; then
+        
+        tar tvf "$source_file"
+        
+    fi
+}
+
+listFiles "$source_file"
