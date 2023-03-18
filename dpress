@@ -55,8 +55,23 @@ dpress_usage() {
     printf "%s\n" "Environment Variables:"
 
     # :environment_variable.usage
-    printf "  %s\n" "API_KEY"
-    printf "    Set your API key\n"
+    printf "  %s\n" "RARFILES"
+    printf "\n"
+    echo
+
+    # :environment_variable.usage
+    printf "  %s\n" "ZIPFILES"
+    printf "\n"
+    echo
+
+    # :environment_variable.usage
+    printf "  %s\n" "TARFILES"
+    printf "\n"
+    echo
+
+    # :environment_variable.usage
+    printf "  %s\n" "XZFILES"
+    printf "\n"
     echo
 
   fi
@@ -78,7 +93,7 @@ dpress_extract_usage() {
   echo
 
   printf "%s\n" "Usage:"
-  printf "  dpress extract\n"
+  printf "  dpress extract SOURCE [TARGET] [OPTIONS]\n"
   printf "  dpress extract --help | -h\n"
   echo
 
@@ -86,9 +101,28 @@ dpress_extract_usage() {
   if [[ -n $long_usage ]]; then
     printf "%s\n" "Options:"
 
+    # :command.usage_flags
+    # :flag.usage
+    printf "  %s\n" "--del, -d"
+    printf "    delete source file\n"
+    echo
+
     # :command.usage_fixed_flags
     printf "  %s\n" "--help, -h"
     printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "%s\n" "Arguments:"
+
+    # :argument.usage
+    printf "  %s\n" "SOURCE"
+    printf "    file toward which apply the command\n"
+    echo
+
+    # :argument.usage
+    printf "  %s\n" "TARGET"
+    printf "    extract in another directory\n"
     echo
 
   fi
@@ -110,7 +144,7 @@ dpress_compress_usage() {
   echo
 
   printf "%s\n" "Usage:"
-  printf "  dpress compress\n"
+  printf "  dpress compress SOURCE [TARGET] [OPTIONS]\n"
   printf "  dpress compress --help | -h\n"
   echo
 
@@ -118,9 +152,28 @@ dpress_compress_usage() {
   if [[ -n $long_usage ]]; then
     printf "%s\n" "Options:"
 
+    # :command.usage_flags
+    # :flag.usage
+    printf "  %s\n" "--del, -d"
+    printf "    delete source file\n"
+    echo
+
     # :command.usage_fixed_flags
     printf "  %s\n" "--help, -h"
     printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "%s\n" "Arguments:"
+
+    # :argument.usage
+    printf "  %s\n" "SOURCE"
+    printf "    file toward which apply the command\n"
+    echo
+
+    # :argument.usage
+    printf "  %s\n" "TARGET"
+    printf "    target filename (default: same as source)\n"
     echo
 
   fi
@@ -142,19 +195,13 @@ dpress_list_usage() {
   echo
 
   printf "%s\n" "Usage:"
-  printf "  dpress list FILE [TARGET] [OPTIONS]\n"
+  printf "  dpress list SOURCE\n"
   printf "  dpress list --help | -h\n"
   echo
 
   # :command.long_usage
   if [[ -n $long_usage ]]; then
     printf "%s\n" "Options:"
-
-    # :command.usage_flags
-    # :flag.usage
-    printf "  %s\n" "--nodel, -n"
-    printf "    do not delete the source file\n"
-    echo
 
     # :command.usage_fixed_flags
     printf "  %s\n" "--help, -h"
@@ -165,13 +212,8 @@ dpress_list_usage() {
     printf "%s\n" "Arguments:"
 
     # :argument.usage
-    printf "  %s\n" "FILE"
+    printf "  %s\n" "SOURCE"
     printf "    file toward which apply the command\n"
-    echo
-
-    # :argument.usage
-    printf "  %s\n" "TARGET"
-    printf "    Target filename (default: same as source)\n"
     echo
 
     # :command.usage_examples
@@ -250,11 +292,39 @@ dpress_extract_command() {
 # :command.function
 dpress_compress_command() {
   # src/compress_command.sh
-  echo "# this file is located in 'src/compress_command.sh'"
-  echo "# code for 'dpress compress' goes here"
-  echo "# you can edit it freely and regenerate (it will not be overwritten)"
   inspect_args
+  source_file="${args[file]}"
+  target_file="${args[target]}"
+  # Compress file in current directory
+  # Globals:
+  #   RARFILES
+  #   ZIPFILES
+  #   TARFILES
+  # Arguments:
+  #   Name of new compressed file
+  #   Name of file to compress
+  # Outputs:
+  #   None
+  echo "Compressing $source_file"
+  # compressFiles () {
+  #     if [[ $source_file =~ $RARFILES ]]; then
 
+  #         rar a -r "$1" "$2"
+
+  #         elif [[ $source_file =~ $ZIPFILES ]]; then
+
+  #         zip -r "$source_file" "$target_file"
+
+  #         elif [[ $source_file =~ $TARFILES ]]; then
+
+  #         tar -zcvf "$1" "$2"
+
+  #         elif [[ $source_file =~ $XZFILES ]]; then
+
+  #         tar cJvf "$1" "$2"
+
+  #     fi
+  # }
 }
 
 # :command.function
@@ -382,6 +452,13 @@ dpress_extract_parse_requirements() {
   while [[ $# -gt 0 ]]; do
     key="$1"
     case "$key" in
+      # :flag.case
+      --del | -d)
+
+        # :flag.case_no_arg
+        args['--del']=1
+        shift
+        ;;
 
       -?*)
         printf "invalid option: %s\n" "$key" >&2
@@ -391,13 +468,29 @@ dpress_extract_parse_requirements() {
       *)
         # :command.parse_requirements_case
         # :command.parse_requirements_case_simple
-        printf "invalid argument: %s\n" "$key" >&2
-        exit 1
+        if [[ -z ${args['source']+x} ]]; then
+
+          args['source']=$1
+          shift
+        elif [[ -z ${args['target']+x} ]]; then
+
+          args['target']=$1
+          shift
+        else
+          printf "invalid argument: %s\n" "$key" >&2
+          exit 1
+        fi
 
         ;;
 
     esac
   done
+
+  # :command.required_args_filter
+  if [[ -z ${args['source']+x} ]]; then
+    printf "missing required argument: SOURCE\nusage: dpress extract SOURCE [TARGET] [OPTIONS]\n" >&2
+    exit 1
+  fi
 
 }
 
@@ -428,6 +521,13 @@ dpress_compress_parse_requirements() {
   while [[ $# -gt 0 ]]; do
     key="$1"
     case "$key" in
+      # :flag.case
+      --del | -d)
+
+        # :flag.case_no_arg
+        args['--del']=1
+        shift
+        ;;
 
       -?*)
         printf "invalid option: %s\n" "$key" >&2
@@ -437,13 +537,29 @@ dpress_compress_parse_requirements() {
       *)
         # :command.parse_requirements_case
         # :command.parse_requirements_case_simple
-        printf "invalid argument: %s\n" "$key" >&2
-        exit 1
+        if [[ -z ${args['source']+x} ]]; then
+
+          args['source']=$1
+          shift
+        elif [[ -z ${args['target']+x} ]]; then
+
+          args['target']=$1
+          shift
+        else
+          printf "invalid argument: %s\n" "$key" >&2
+          exit 1
+        fi
 
         ;;
 
     esac
   done
+
+  # :command.required_args_filter
+  if [[ -z ${args['source']+x} ]]; then
+    printf "missing required argument: SOURCE\nusage: dpress compress SOURCE [TARGET] [OPTIONS]\n" >&2
+    exit 1
+  fi
 
 }
 
@@ -474,13 +590,6 @@ dpress_list_parse_requirements() {
   while [[ $# -gt 0 ]]; do
     key="$1"
     case "$key" in
-      # :flag.case
-      --nodel | -n)
-
-        # :flag.case_no_arg
-        args['--nodel']=1
-        shift
-        ;;
 
       -?*)
         printf "invalid option: %s\n" "$key" >&2
@@ -490,13 +599,9 @@ dpress_list_parse_requirements() {
       *)
         # :command.parse_requirements_case
         # :command.parse_requirements_case_simple
-        if [[ -z ${args['file']+x} ]]; then
+        if [[ -z ${args['source']+x} ]]; then
 
-          args['file']=$1
-          shift
-        elif [[ -z ${args['target']+x} ]]; then
-
-          args['target']=$1
+          args['source']=$1
           shift
         else
           printf "invalid argument: %s\n" "$key" >&2
@@ -509,8 +614,8 @@ dpress_list_parse_requirements() {
   done
 
   # :command.required_args_filter
-  if [[ -z ${args['file']+x} ]]; then
-    printf "missing required argument: FILE\nusage: dpress list FILE [TARGET] [OPTIONS]\n" >&2
+  if [[ -z ${args['source']+x} ]]; then
+    printf "missing required argument: SOURCE\nusage: dpress list SOURCE\n" >&2
     exit 1
   fi
 
@@ -523,6 +628,10 @@ initialize() {
   set -e
 
   # src/initialize.sh
+  RARFILES='^.+\.rar$'
+  ZIPFILES='^.+\.zip$'
+  TARFILES='^.+\.tar\.gz$'
+  XZFILES='^.+\.tar\.xz$'
 
 }
 

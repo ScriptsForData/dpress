@@ -3,31 +3,52 @@ help: Application to joint extracting and compressing tools for zip, rar and tar
 version: 1.0.0
 
 environment_variables:
-- name: api_key
-  help: Set your API key
+- name: RARFILES
+- name: ZIPFILES
+- name: TARFILES
+- name: XZFILES
 
 commands:
 - name: extract
   alias: e
   help: extract a file
+
+  args:
+  - name: source
+    required: true
+    help: file toward which apply the command
+  - name: target
+    help: extract in another directory
+
+  flags:
+  - long: --del
+    short: -d
+    help: delete source file
+
 - name: compress
   alias: c
   help: compress a file
+
+  args:
+  - name: source
+    required: true
+    help: file toward which apply the command
+  - name: target
+    help: "target filename (default: same as source)"
+
+  flags:
+  - long: --del
+    short: -d
+    help: delete source file
+
 - name: list
   alias: l
   help: list files in a compressed file
 
   args:
-  - name: file
+  - name: source
     required: true
     help: file toward which apply the command
-  - name: target
-    help: "Target filename (default: same as source)"
-
-  flags:
-  - long: --nodel
-    short: -n
-    help: do not delete the source file
 
   examples:
   - dpress extract file.zip

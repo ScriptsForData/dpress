@@ -4,3 +4,7 @@
 ## CONFIG_FILE=settings.ini
 ##
 ## Feel free to empty (but not delete) this file.
+# RARFILES='^.+\.rar$'
+# ZIPFILES='^.+\.zip$'
+# TARFILES='^.+\.tar\.gz$'
+# XZFILES='^.+\.tar\.xz$'
