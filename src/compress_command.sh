@@ -1,5 +1,5 @@
 inspect_args
-source_file="${args[file]}"
+source_file="${args[source]}"
 target_file="${args[target]}"
 #######################################
 # Compress file in current directory
@@ -13,23 +13,24 @@ target_file="${args[target]}"
 # Outputs:
 #   None
 #######################################
-echo "Compressing $source_file"
-# compressFiles () {
-#     if [[ $source_file =~ $RARFILES ]]; then
+compressFile () {
+    if [[ $source_file =~ $RARFILES ]]; then
+        
+        rar a -r "$source_file" "$target_file"
+        
+        elif [[ $source_file =~ $ZIPFILES ]]; then
+        
+        zip -r "$source_file" "$target_file"
+        
+        elif [[ $source_file =~ $TARFILES ]]; then
+        
+        tar -zcvf "$source_file" "$target_file"
+        
+        elif [[ $source_file =~ $XZFILES ]]; then
+        
+        tar cJvf "$source_file" "$target_file"
+        
+    fi
+}
 
-#         rar a -r "$1" "$2"
-
-#         elif [[ $source_file =~ $ZIPFILES ]]; then
-
-#         zip -r "$source_file" "$target_file"
-
-#         elif [[ $source_file =~ $TARFILES ]]; then
-
-#         tar -zcvf "$1" "$2"
-
-#         elif [[ $source_file =~ $XZFILES ]]; then
-
-#         tar cJvf "$1" "$2"
-
-#     fi
-# }
+compressFile "$source_file" "$target_file"
