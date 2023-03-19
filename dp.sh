@@ -9,33 +9,6 @@ XZFILES='^.+\.tar\.xz$'
 ARGUMENT='^-.+$'
 
 
-#######################################
-# Decompress files in another directory.
-# Globals:
-#   RARFILES
-#   ZIPFILES
-#   TARFILES
-# Arguments:
-#   Name of compressed file
-#   Name of directory to decompress files to
-# Outputs:
-#   None
-#######################################
-decompressAnotherDir () {
-    if [[ $1 =~ $RARFILES ]]; then
-        
-        unrar e "$1" "$2"
-        
-        elif [[ $1 =~ $ZIPFILES ]]; then
-        
-        unzip "$1" -d "$2"
-        
-        elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
-        
-        tar -xf "$1" --directory "$2"
-        
-    fi
-}
 
 #######################################
 # Compress file in current directory
@@ -69,35 +42,6 @@ compressFiles () {
     fi
 }
 
-#######################################
-# Decompress files in current directory
-# Globals:
-#   RARFILES
-#   ZIPFILES
-#   TARFILES
-# Arguments:
-#   Name of new compressed file
-#   Name of file to compress
-# Outputs:
-#   None
-#######################################
-decompress () {
-    if [[ $1 =~ $RARFILES ]]; then
-        
-        unrar x "$1" > /dev/null
-        
-        elif [[ $1 =~ $ZIPFILES ]]; then
-        
-        unzip "$1" > /dev/null
-        
-        elif [[ $1 =~ $TARFILES || $1 =~ $XZFILES ]]; then
-        
-        tar -xzvf "$1" > /dev/null
-        
-    else
-        echo "Note: You must select a compressed file"
-    fi
-}
 
 # Main entry point
 if [[ $1 =~ $ARGUMENT ]]; then
