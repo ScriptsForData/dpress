@@ -15,21 +15,21 @@ source="${args[source]}"
 compressFile () {
     if [[ $target =~ $RARFILES ]]; then
         
-        rar a -r "$target " "$source"
+        rar a -r "$target" "$source"
         
         elif [[ $target =~ $ZIPFILES ]]; then
         
-        zip -r "$target " "$source"
+        zip -r "$target" "$source"
         
         elif [[ $target =~ $TARFILES ]]; then
         
-        tar -zcvf "$target " "$source"
+        tar -zcvf "$target" "$source"
         
         elif [[ $target =~ $XZFILES ]]; then
         
-        tar cJvf "$target " "$source"
+        tar cJvf "$target" "$source"
         
     fi
 }
 
-compressFile "$target " "$source"
+compressFile "$target" "$source"

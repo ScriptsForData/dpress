@@ -122,7 +122,7 @@ dpress_extract_usage() {
 
     # :argument.usage
     printf "  %s\n" "TARGET"
-    printf "    extract in another directory\n"
+    printf "    directory where extract the file\n"
     echo
 
   fi
@@ -144,7 +144,7 @@ dpress_compress_usage() {
   echo
 
   printf "%s\n" "Usage:"
-  printf "  dpress compress SOURCE [TARGET] [OPTIONS]\n"
+  printf "  dpress compress TARGET SOURCE [OPTIONS]\n"
   printf "  dpress compress --help | -h\n"
   echo
 
@@ -167,13 +167,13 @@ dpress_compress_usage() {
     printf "%s\n" "Arguments:"
 
     # :argument.usage
-    printf "  %s\n" "SOURCE"
-    printf "    file toward which apply the command\n"
+    printf "  %s\n" "TARGET"
+    printf "    output file. The compressed\n"
     echo
 
     # :argument.usage
-    printf "  %s\n" "TARGET"
-    printf "    target filename (default: same as source)\n"
+    printf "  %s\n" "SOURCE"
+    printf "    file toward which apply the command\n"
     echo
 
   fi
@@ -213,7 +213,7 @@ dpress_list_usage() {
 
     # :argument.usage
     printf "  %s\n" "SOURCE"
-    printf "    file toward which apply the command\n"
+    printf "    compressed file to read\n"
     echo
 
     # :command.usage_examples
@@ -348,39 +348,40 @@ dpress_extract_command() {
 # :command.function
 dpress_compress_command() {
   # src/compress_command.sh
-  source="${args[source]}"
   target="${args[target]}"
+  source="${args[source]}"
   # Compress file in current directory
   # Globals:
   #   RARFILES
   #   ZIPFILES
   #   TARFILES
   # Arguments:
-  #   Name of new compressed file
-  #   Name of file to compress
+  #   $source: Name of file to compress
+  #   $target:
+
   # Outputs:
   #   None
   compressFile () {
-      if [[ $source =~ $RARFILES ]]; then
+      if [[ $target =~ $RARFILES ]]; then
 
-          rar a -r "$source" "$target"
+          rar a -r "$target" "$source"
 
-          elif [[ $source =~ $ZIPFILES ]]; then
+          elif [[ $target =~ $ZIPFILES ]]; then
 
-          zip -r "$source" "$target"
+          zip -r "$target" "$source"
 
-          elif [[ $source =~ $TARFILES ]]; then
+          elif [[ $target =~ $TARFILES ]]; then
 
-          tar -zcvf "$source" "$target"
+          tar -zcvf "$target" "$source"
 
-          elif [[ $source =~ $XZFILES ]]; then
+          elif [[ $target =~ $XZFILES ]]; then
 
-          tar cJvf "$source" "$target"
+          tar cJvf "$target" "$source"
 
       fi
   }
 
-  compressFile "$source" "$target"
+  compressFile "$target" "$source"
 }
 
 # :command.function
@@ -619,13 +620,13 @@ dpress_compress_parse_requirements() {
       *)
         # :command.parse_requirements_case
         # :command.parse_requirements_case_simple
-        if [[ -z ${args['source']+x} ]]; then
-
-          args['source']=$1
-          shift
-        elif [[ -z ${args['target']+x} ]]; then
+        if [[ -z ${args['target']+x} ]]; then
 
           args['target']=$1
+          shift
+        elif [[ -z ${args['source']+x} ]]; then
+
+          args['source']=$1
           shift
         else
           printf "invalid argument: %s\n" "$key" >&2
@@ -638,8 +639,12 @@ dpress_compress_parse_requirements() {
   done
 
   # :command.required_args_filter
+  if [[ -z ${args['target']+x} ]]; then
+    printf "missing required argument: TARGET\nusage: dpress compress TARGET SOURCE [OPTIONS]\n" >&2
+    exit 1
+  fi
   if [[ -z ${args['source']+x} ]]; then
-    printf "missing required argument: SOURCE\nusage: dpress compress SOURCE [TARGET] [OPTIONS]\n" >&2
+    printf "missing required argument: SOURCE\nusage: dpress compress TARGET SOURCE [OPTIONS]\n" >&2
     exit 1
   fi
 
