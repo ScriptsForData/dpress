@@ -1,6 +1,5 @@
-inspect_args
-source_file="${args[source]}"
-target_file="${args[target]}"
+source="${args[source]}"
+target="${args[target]}"
 #######################################
 # Compress file in current directory
 # Globals:
@@ -14,23 +13,23 @@ target_file="${args[target]}"
 #   None
 #######################################
 compressFile () {
-    if [[ $source_file =~ $RARFILES ]]; then
+    if [[ $source =~ $RARFILES ]]; then
         
-        rar a -r "$source_file" "$target_file"
+        rar a -r "$source" "$target"
         
-        elif [[ $source_file =~ $ZIPFILES ]]; then
+        elif [[ $source =~ $ZIPFILES ]]; then
         
-        zip -r "$source_file" "$target_file"
+        zip -r "$source" "$target"
         
-        elif [[ $source_file =~ $TARFILES ]]; then
+        elif [[ $source =~ $TARFILES ]]; then
         
-        tar -zcvf "$source_file" "$target_file"
+        tar -zcvf "$source" "$target"
         
-        elif [[ $source_file =~ $XZFILES ]]; then
+        elif [[ $source =~ $XZFILES ]]; then
         
-        tar cJvf "$source_file" "$target_file"
+        tar cJvf "$source" "$target"
         
     fi
 }
 
-compressFile "$source_file" "$target_file"
+compressFile "$source" "$target"

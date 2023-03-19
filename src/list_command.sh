@@ -1,5 +1,4 @@
-source_file=${args[source]}
-
+source=${args[source]}
 #######################################
 # List files inside compressed file.
 # Globals:
@@ -12,23 +11,23 @@ source_file=${args[source]}
 #   Writes files that are beging decompressed to stdout.
 #######################################
 listFiles () {
-    if [[ $source_file =~ $RARFILES ]]; then
+    if [[ $source =~ $RARFILES ]]; then
         
-        unrar l "$source_file"
+        unrar l "$source"
         
-        elif [[ $source_file =~ $ZIPFILES ]]; then
+        elif [[ $source =~ $ZIPFILES ]]; then
         
-        unzip -l "$source_file"
+        unzip -l "$source"
         
-        elif [[ $source_file =~ $TARFILES ]]; then
+        elif [[ $source =~ $TARFILES ]]; then
         
-        tar -ztvf "$source_file"
+        tar -ztvf "$source"
         
-        elif [[ $source_file =~ $XZFILES ]]; then
+        elif [[ $source =~ $XZFILES ]]; then
         
-        tar tvf "$source_file"
+        tar tvf "$source"
         
     fi
 }
 
-listFiles "$source_file"
+listFiles "$source"
