@@ -348,9 +348,8 @@ dpress_extract_command() {
 # :command.function
 dpress_compress_command() {
   # src/compress_command.sh
-  inspect_args
-  source_file="${args[source]}"
-  target_file="${args[target]}"
+  source="${args[source]}"
+  target="${args[target]}"
   # Compress file in current directory
   # Globals:
   #   RARFILES
@@ -362,33 +361,32 @@ dpress_compress_command() {
   # Outputs:
   #   None
   compressFile () {
-      if [[ $source_file =~ $RARFILES ]]; then
+      if [[ $source =~ $RARFILES ]]; then
 
-          rar a -r "$source_file" "$target_file"
+          rar a -r "$source" "$target"
 
-          elif [[ $source_file =~ $ZIPFILES ]]; then
+          elif [[ $source =~ $ZIPFILES ]]; then
 
-          zip -r "$source_file" "$target_file"
+          zip -r "$source" "$target"
 
-          elif [[ $source_file =~ $TARFILES ]]; then
+          elif [[ $source =~ $TARFILES ]]; then
 
-          tar -zcvf "$source_file" "$target_file"
+          tar -zcvf "$source" "$target"
 
-          elif [[ $source_file =~ $XZFILES ]]; then
+          elif [[ $source =~ $XZFILES ]]; then
 
-          tar cJvf "$source_file" "$target_file"
+          tar cJvf "$source" "$target"
 
       fi
   }
 
-  compressFile "$source_file" "$target_file"
+  compressFile "$source" "$target"
 }
 
 # :command.function
 dpress_list_command() {
   # src/list_command.sh
-  source_file=${args[source]}
-
+  source=${args[source]}
   # List files inside compressed file.
   # Globals:
   #   RARFILES
@@ -399,26 +397,26 @@ dpress_list_command() {
   # Outputs:
   #   Writes files that are beging decompressed to stdout.
   listFiles () {
-      if [[ $source_file =~ $RARFILES ]]; then
+      if [[ $source =~ $RARFILES ]]; then
 
-          unrar l "$source_file"
+          unrar l "$source"
 
-          elif [[ $source_file =~ $ZIPFILES ]]; then
+          elif [[ $source =~ $ZIPFILES ]]; then
 
-          unzip -l "$source_file"
+          unzip -l "$source"
 
-          elif [[ $source_file =~ $TARFILES ]]; then
+          elif [[ $source =~ $TARFILES ]]; then
 
-          tar -ztvf "$source_file"
+          tar -ztvf "$source"
 
-          elif [[ $source_file =~ $XZFILES ]]; then
+          elif [[ $source =~ $XZFILES ]]; then
 
-          tar tvf "$source_file"
+          tar tvf "$source"
 
       fi
   }
 
-  listFiles "$source_file"
+  listFiles "$source"
 }
 
 # :command.parse_requirements
