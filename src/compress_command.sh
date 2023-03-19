@@ -1,5 +1,5 @@
-source="${args[source]}"
 target="${args[target]}"
+source="${args[source]}"
 #######################################
 # Compress file in current directory
 # Globals:
@@ -7,29 +7,29 @@ target="${args[target]}"
 #   ZIPFILES
 #   TARFILES
 # Arguments:
-#   Name of new compressed file
-#   Name of file to compress
+#   $source: Name of file to compress
+#   $target: 
 # Outputs:
 #   None
 #######################################
 compressFile () {
-    if [[ $source =~ $RARFILES ]]; then
+    if [[ $target =~ $RARFILES ]]; then
         
-        rar a -r "$source" "$target"
+        rar a -r "$target " "$source"
         
-        elif [[ $source =~ $ZIPFILES ]]; then
+        elif [[ $target =~ $ZIPFILES ]]; then
         
-        zip -r "$source" "$target"
+        zip -r "$target " "$source"
         
-        elif [[ $source =~ $TARFILES ]]; then
+        elif [[ $target =~ $TARFILES ]]; then
         
-        tar -zcvf "$source" "$target"
+        tar -zcvf "$target " "$source"
         
-        elif [[ $source =~ $XZFILES ]]; then
+        elif [[ $target =~ $XZFILES ]]; then
         
-        tar cJvf "$source" "$target"
+        tar cJvf "$target " "$source"
         
     fi
 }
 
-compressFile "$source" "$target"
+compressFile "$target " "$source"

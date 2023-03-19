@@ -18,7 +18,7 @@ commands:
     required: true
     help: file toward which apply the command
   - name: target
-    help: extract in another directory
+    help: directory where extract the file
 
   flags:
   - long: --del
@@ -30,11 +30,12 @@ commands:
   help: compress a file
 
   args:
+  - name: target
+    required: true
+    help: output file. The compressed
   - name: source
     required: true
     help: file toward which apply the command
-  - name: target
-    help: "target filename (default: same as source)"
 
   flags:
   - long: --del
@@ -48,7 +49,7 @@ commands:
   args:
   - name: source
     required: true
-    help: file toward which apply the command
+    help: compressed file to read
 
   examples:
   - dpress extract file.zip
