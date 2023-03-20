@@ -1,4 +1,4 @@
-# Files decompressor 
+# Compressor/Extractor hub
 I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use `unzip` or `unrar` tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, and don't mention arguments needed to decompress `tar.gz` files, so I decide to create a script that combine the three commands to be easy to use.
 
 ## Requirements :mag_right:
@@ -9,7 +9,7 @@ Is necessary that you have mentioned tools instaled on your computer, `unzip`,`u
 ```
 For distros like Arch or Debian the script will detect automatically the os to use the correct package manager. Only for Mac you must to use `-mac` argument in script call.
 
->	`Note:` remember to give permitions to `requirements.sh` before to try to execute.
+>	Remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
 
@@ -25,11 +25,12 @@ The script will detect file extension and use the tool with their arguments to w
 | `e`       | Extract files from compressed file |
 | `c`       | Create a compressed file, can be `zip`, `rar`,`tar.gz` or `tar.xz` file. It requires a second argument which is the source file|
 
-### Flags 
+### Flags:
+
 Flags requires start with `-` character, and can be used with any command (except with `l`).
 | Flag | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
-| `-d` | `--del`       | Remove source file after extraction or compression|
+| `-d` / `--del`       | Remove source file after extraction or compression|
 
 
 > Check `wiki` to see some examples to learn how to use it.
