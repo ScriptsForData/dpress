@@ -1,5 +1,6 @@
 source="${args[source]}"
 target="${args[target]}"
+to_delete="${args[--del]}"
 #######################################
 # Decompress files in current directory
 # Globals:
@@ -16,14 +17,26 @@ extract () {
     if [[ $source =~ $RARFILES ]]; then
         
         unrar x "$source" > /dev/null
+
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
         elif [[ $source =~ $ZIPFILES ]]; then
         
         unzip "$source" > /dev/null
+
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
         elif [[ $source =~ $TARFILES || $1 =~ $XZFILES ]]; then
         
         tar -xzvf "$source" > /dev/null
+
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
     else
         echo "Note: You must select a compressed file"
@@ -46,14 +59,26 @@ extractAnotherDir() {
     if [[ $source =~ $RARFILES ]]; then
         
         unrar e "$source" "$target"
+
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
         elif [[ $source =~ $ZIPFILES ]]; then
         
         unzip "$source" -d "$target"
+
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
         elif [[ $source =~ $TARFILES || $1 =~ $XZFILES ]]; then
         
         tar -xf "$source" --directory "$target"
+        
+        if [[ $to_delete ]]; then
+            rm "$source"
+        fi
         
     fi
 }
