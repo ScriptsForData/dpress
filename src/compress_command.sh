@@ -9,9 +9,7 @@ to_delete="${args[--del]}"
 #   TARFILES
 # Arguments:
 #   $source: Name of file to compress
-#   $target: 
-# Outputs:
-#   None
+#   $target: Name of new compressed file
 #######################################
 compressFile () {
     if [[ $target =~ $RARFILES ]]; then

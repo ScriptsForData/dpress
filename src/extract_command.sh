@@ -2,16 +2,13 @@ source="${args[source]}"
 target="${args[target]}"
 to_delete="${args[--del]}"
 #######################################
-# Decompress files in current directory
+# Extract files in current directory
 # Globals:
 #   RARFILES
 #   ZIPFILES
 #   TARFILES
-# Arguments:
-#   Name of new compressed file
-#   Name of file to compress
-# Outputs:
-#   None
+# arguments:
+#   $source: name of compressed file to extract
 #######################################
 extract () {
     if [[ $source =~ $RARFILES ]]; then
@@ -44,16 +41,14 @@ extract () {
 }
 
 #######################################
-# Decompress files in another directory.
+# Extract files in another directory.
 # Globals:
 #   RARFILES
 #   ZIPFILES
 #   TARFILES
 # Arguments:
-#   Name of compressed file
-#   Name of directory to decompress files to
-# Outputs:
-#   None
+#   $source: name of compressed file to extract
+#   $target: name of directory to extract files to
 #######################################
 extractAnotherDir() {
     if [[ $source =~ $RARFILES ]]; then
