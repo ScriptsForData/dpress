@@ -13,37 +13,16 @@ to_delete="${args[--del]}"
 #######################################
 compressFile () {
     if [[ $target =~ $RARFILES ]]; then
-        
         rar a -r "$target" "$source"
-
-        if [[ $to_delete ]]; then
-            rm -r "$source"
-        fi
-        
-        elif [[ $target =~ $ZIPFILES ]]; then
-        
+    elif [[ $target =~ $ZIPFILES ]]; then
         zip -r "$target" "$source"
-
-        if [[ $to_delete ]]; then
-            rm -r "$source"
-        fi
-        
-        elif [[ $target =~ $TARFILES ]]; then
-        
+    elif [[ $target =~ $TARFILES ]]; then
         tar -zcvf "$target" "$source"
-
-        if [[ $to_delete ]]; then
-            rm -r "$source"
-        fi
-        
-        elif [[ $target =~ $XZFILES ]]; then
-        
+    elif [[ $target =~ $XZFILES ]]; then
         tar cJvf "$target" "$source"
-
-        if [[ $to_delete ]]; then
-            rm -r "$source"
-        fi
-        
+    fi
+    if [[ $to_delete ]]; then
+        rm -r "$source"
     fi
 }
 

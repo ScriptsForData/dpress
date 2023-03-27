@@ -12,21 +12,13 @@ source=${args[source]}
 #######################################
 listFiles () {
     if [[ $source =~ $RARFILES ]]; then
-        
         unrar l "$source"
-        
-        elif [[ $source =~ $ZIPFILES ]]; then
-        
+    elif [[ $source =~ $ZIPFILES ]]; then
         unzip -l "$source"
-        
-        elif [[ $source =~ $TARFILES ]]; then
-        
+    elif [[ $source =~ $TARFILES ]]; then
         tar -ztvf "$source"
-        
-        elif [[ $source =~ $XZFILES ]]; then
-        
+    elif [[ $source =~ $XZFILES ]]; then
         tar tvf "$source"
-        
     fi
 }
 
