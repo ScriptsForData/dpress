@@ -25,6 +25,10 @@ commands:
     short: -d
     help: delete source file
 
+  - long: --re
+    short: -r
+    help: extract files recursively from a .txt file
+
 - name: compress
   alias: c
   help: compress a file

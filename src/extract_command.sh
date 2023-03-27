@@ -1,6 +1,7 @@
 source="${args[source]}"
 target="${args[target]}"
 to_delete="${args[--del]}"
+is_recursive="${args[--re]}"
 #######################################
 # Extract files in current directory
 # Globals:
@@ -13,17 +14,30 @@ to_delete="${args[--del]}"
 extract () {
     if [[ $source =~ $RARFILES ]]; then
         unrar x "$source" > /dev/null
-    elif [[ $to_delete ]]; then
-            rm "$source"
     elif [[ $source =~ $ZIPFILES ]]; then
         unzip "$source" > /dev/null
-    elif [[ $to_delete ]]; then
-            rm "$source"
     elif [[ $source =~ $TARFILES || $1 =~ $XZFILES ]]; then
         tar -xzvf "$source" > /dev/null
     fi
     if [[ $to_delete ]]; then
             rm "$source"
+    fi
+}
+
+extractRecursively () {
+    if [[ $source =~ $TXT ]]; then
+        while read line; do
+            if [[ $line =~ $RARFILES ]]; then
+                unrar x "$line" > /dev/null
+            elif [[ $line =~ $ZIPFILES ]]; then
+                unzip "$line" > /dev/null
+            elif [[ $line =~ $TARFILES || $1 =~ $XZFILES ]]; then
+                tar -xzvf "$line" > /dev/null
+            fi
+            if [[ $to_delete ]]; then
+                rm "$line"
+            fi
+        done < "$source"
     fi
 }
 
@@ -49,6 +63,9 @@ extractAnotherDir() {
 
 if [[ $target ]]; then
 		extractAnotherDir "$source" "$target"
+fi
+if [[ $is_recursive  ]]; then
+        extractRecursively "$source"
 else
 		extract "$source"
 fi
