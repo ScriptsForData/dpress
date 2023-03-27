@@ -18,6 +18,9 @@ Just execute:
 ```Bash
 ./dpress <command> <flag> <file.zip> <...>
 ```
+
+### Commands:
+
 The script will detect file extension and use the tool with their arguments to work with in the current directory. To change default behavior, use one of these commands:
 | Command | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
@@ -31,6 +34,7 @@ Flags requires start with `-` character, and can be used with any command (excep
 | Flag | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
 | `-d` / `--del`       | Remove source file after extraction or compression|
+| `-r` / `--re`       | Extract files recursively|
 
 
 > Check `wiki` to see some examples to learn how to use it.
