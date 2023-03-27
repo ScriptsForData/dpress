@@ -1,0 +1,9 @@
+version = 1
+
+exclude_patterns = [
+  "dpress.sh",
+  "src/initialize.sh"
+]
+
+[[analyzers]]
+name = "shell"
