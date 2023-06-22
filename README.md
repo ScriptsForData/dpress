@@ -5,9 +5,9 @@ I don't have any graphic tool like unzip or unrar on my computer, so when I want
 Is necessary that you have mentioned tools instaled on your computer, `unzip`,`unrar` and `xz` tools; `tar` actually comes instaled on Mac and Linux. First two tools can be downloaded easily using `requirments.sh` file executing it as follow:
 
 ```Bash
-./requirments.sh 
+./requirments.sh -<os>
 ```
-For distros like Arch or Debian the script will detect automatically the os to use the correct package manager. Only for Mac you must to use `-mac` argument in script call.
+Where `<os>` can be `mac` , `debian` or `arch`. 
 
 >	Remember to give permitions to `requirements.sh` before to try to execute.
 
@@ -16,7 +16,7 @@ For distros like Arch or Debian the script will detect automatically the os to u
 Just execute:
 
 ```Bash
-./dpress <command> <flag> <file.zip> <...>
+./dpress <command> -<flag> <file.zip> <...>
 ```
 
 ### Commands:
@@ -33,8 +33,8 @@ The script will detect file extension and use the tool with their arguments to w
 Flags requires start with `-` character, and can be used with any command (except with `l`).
 | Flag | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
-| `-d` / `--del`       | Remove source file after extraction or compression|
-| `-r` / `--re`       | Extract files recursively|
+| `d` / `-del`       | Remove source file after extraction or compression|
+| `r` / `-re`       | Extract files recursively|
 
 
 > Check `wiki` to see some examples to learn how to use it.
@@ -42,7 +42,6 @@ Flags requires start with `-` character, and can be used with any command (excep
 ## Limitations :construction:
 1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
 2) For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
-3) You must have installed `zip` and `rar` tool before to try execute `requirements.sh`(where you install `unzip` etc) on `Arch` distrution only. This 'cause isn't possible install they from `pacman` repository.
 
 ---
 Enjoy :bamboo:
