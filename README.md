@@ -19,16 +19,12 @@ Just execute:
 ./dpress <command> -<flag> <file.zip> <...>
 ```
 
-### Commands:
-
 The script will detect file extension and use the tool with their arguments to work with in the current directory. To change default behavior, use one of these commands:
 | Command | Description                                                                                 |
 |----------|---------------------------------------------------------------------------------------------|
 | `l`       | List files in compressed file. It doesn't extract the files just list it|
 | `e`       | Extract files from compressed file |
 | `c`       | Create a compressed file, can be `zip`, `rar`,`tar.gz` or `tar.xz` file. It requires a second argument which is the source file|
-
-### Flags:
 
 Flags requires start with `-` character, and can be used with any command (except with `l`).
 | Flag | Description                                                                                 |
