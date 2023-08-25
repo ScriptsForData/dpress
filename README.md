@@ -1,13 +1,13 @@
 # Compressor/Extractor hub
-I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use `unzip` or `unrar` tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, and don't mention arguments needed to decompress `tar.gz` files, so I decide to create a script that combine the three commands to be easy to use.
+I don't have any graphic tool like unzip or unrar on my computer, so when I want to decompress a file I've to use unzip or unrar tool from terminal, and I'm good with that I like it, but both has different argument and parameters so I never remember which is for which, and don't mention arguments needed to decompress tar.gz files, so I decide to create a script that combine the three commands to be easy to use.
 
 ## Requirements :mag_right:
-Is necessary that you have mentioned tools instaled on your computer, `unzip`,`unrar` and `xz` tools; `tar` actually comes instaled on Mac and Linux. First two tools can be downloaded easily using `requirments.sh` file executing it as follow:
+Is necessary that you have mentioned tools instaled on your computer, unzip,unrar and xz tools; tar actually comes instaled on Mac and Linux. First two tools can be downloaded easily using requirments.sh file executing it as follow:
 
 ```Bash
 ./requirments.sh -<os>
 ```
-Where `<os>` can be `mac` , `debian` or `arch`. 
+Where `<os>` can be mac , debian or arch. 
 
 >	Remember to give permitions to `requirements.sh` before to try to execute.
 
