@@ -6,7 +6,7 @@ case $1 in
     ;;
     -arch) sudo pacman -S unzip unrar
     ;;
-    -mac) brew  install rar && brew install unzip
+    -mac) brew install rar unzip
     ;;
     *) echo "NOTE: Select some argument to use a
         package manager and install the requirements"
