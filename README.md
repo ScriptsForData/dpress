@@ -8,7 +8,6 @@ Is necessary mention that you must have installed the tools on your computer (un
 ./requirments.sh -<os> #mac, debian, ubuntu, arch
 ```
 
-> [!Note]
 >	Remember to give permitions to `requirements.sh` before to try to execute.
 
 ## How to use :ringed_planet:
@@ -30,7 +29,6 @@ Execute `dpress` file. The script will detect file extension and use the tool wi
 | `-r` / `-re`       | Extract files recursively|
 
 
-> [!Note]
 > Check `wiki` to see some examples to learn how to use it.
 
 ## Limitations :construction:
