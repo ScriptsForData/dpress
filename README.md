@@ -14,7 +14,7 @@ Is necessary mention that you must have installed the tools on your computer (un
 Execute `dpress` file. The script will detect file extension and use the tool with their arguments to work with in the current directory. To change default behavior, use one of these commands:
 
 ```Bash
-./dpress <command> -<flag> <file.zip> <...>
+./dpress <command> <flag> <file.zip> <...>
 ```
 
 | Command | Description                                                                                 |
@@ -32,8 +32,8 @@ Execute `dpress` file. The script will detect file extension and use the tool wi
 > Check `wiki` to see some examples to learn how to use it.
 
 ## Limitations :construction:
-1) For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
-2) For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
+- For files with names separated with spaces, you must rename that file to `trim` or `strip` its name , otherwise you will get an [error](https://stackoverflow.com/questions/30999227/how-to-solve-unzip-cannot-find-or-open-error-in-linux-os).
+- For files with `xz` extension you only must compress and decompress a dir with many files, doesn't work if you try to do with a single file.
 
 ---
 :bamboo: ~
